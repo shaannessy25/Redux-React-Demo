@@ -4,7 +4,9 @@ import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import reducers from '../reducers/'
 import './App.css';
-import Counter from './Counter'
+import Counters from './Counters'
+import Total from './Total'
+import Max from './Max'
 const store = createStore(reducers)
 
 
@@ -13,8 +15,10 @@ class App extends Component {
     return (
       <Provider store={store}>
         <div>
-          <Counter />
+          <Counters />
         </div>
+        <Total />
+        <Max />
       </Provider>
     )
   }
