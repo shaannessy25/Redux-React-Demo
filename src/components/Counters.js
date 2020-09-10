@@ -7,10 +7,11 @@ import { incrementCount, decrementCount } from '../actions/index'
 
 class Counters extends Component {
     renderCounters(){
-        return this.props.counters.map((value, i) => {
+        return this.props.counters.map((counter, i) => {
             return (
                 <div>
-                    <h1>{value}</h1>
+                    <h1>{counter.value}</h1>
+                    <p>{counter.name}</p>
                     <p>
                         <button onClick={() => this.props.incrementCount(i)}>+</button>
                         <button onClick={() => this.props.decrementCount(i)}>-</button>

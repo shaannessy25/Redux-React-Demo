@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-export class Max extends Component {
+export class Max extends Component {  
     render() {
+        const values = this.props.counters.map((counter) => counter.value)
         return (
             <div>
-                <h1>Max: {Math.max(...this.props.counters)}</h1>
+                <h1>Max: {Math.max(...values)}</h1>
             </div>
         )
     }
