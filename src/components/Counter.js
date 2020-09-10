@@ -5,15 +5,26 @@ import { incrementCount, decrementCount } from '../actions/index'
 
 
 
-class Counter extends Component {
+class Counters extends Component {
+    renderCounters(){
+        return this.props.counters.map((value, i) => {
+            return (
+                <div>
+                    <h1>{value}</h1>
+                    <p>
+                        <button onClick={() => this.props.incrementCount(i)}>+</button>
+                        <button onClick={() => this.props.decrementCount(i)}>-</button>
+                    </p>
+                </div>                
+            )
+        })
+    }
+
+
     render() {
         return (
             <div>
-                <h1>{this.props.count}</h1>
-                <p>
-                    <button onClick={() => this.props.incrementCount()}>+</button>
-                    <button onClick={() => this.props.decrementCount()}>-</button>
-                </p>
+                {this.renderCounters()}
             </div>
         )
     }
@@ -22,7 +33,7 @@ class Counter extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        count: state.count
+        counters: state.counters
     }
 }
 
@@ -33,4 +44,4 @@ const mapDispathToProps = () => {
     }
 }
 
-export default connect(mapStateToProps, mapDispathToProps())(Counter)
+export default connect(mapStateToProps, mapDispathToProps())(Counters)
